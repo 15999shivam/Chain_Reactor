@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './Board.dart';
+import 'package:chain_reactor/JoinRoom.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Chain_Reactor"),
         ),
-        body: Board(),
+        body: JoinRoom(),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +24,7 @@ class _CellState extends State<Cell> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 100),
+    return Container(
 //      color: Colors.lightBlue,
       decoration: BoxDecoration(
           border: Border(
@@ -34,20 +34,25 @@ class _CellState extends State<Cell> {
         maxWidth: MediaQuery.of(context).size.width / 6,
         maxHeight: MediaQuery.of(context).size.height / 13,
       ),
-      child: Transform.scale(
-        scale: 0.60,
-        child: Center(
-            child: widget.val == 0
-                ? Container(
-                    color: Colors.white,
-                  )
-                : Image.asset(
-                    "images/${widget.val}.jpg",
-                    fit: BoxFit.contain,
-                    color: this.widget.color,
-                    colorBlendMode: BlendMode.color,
-                  )),
+      child: FlareActor(
+        'flare/BottomRow.flr',
+        animation: 'split',
+        color: Colors.lightBlue,
+        fit: BoxFit.contain,
+        sizeFromArtboard: true,
       ),
     );
   }
 }
+//Center(
+//child: widget.val == 0
+//? Container(
+//color: Colors.white,
+//)
+//: Image.asset(
+//"images/${widget.val}.jpg",
+//fit: BoxFit.contain,
+//color: this.widget.color,
+//colorBlendMode: BlendMode.color,
+//),
+//),
